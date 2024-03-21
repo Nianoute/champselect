@@ -16,34 +16,6 @@ button:hover {
     auto;
 }
 
-.btn-primary {
-  align-self: center;
-  text-align: center;
-  width: 27rem;
-  height: 6rem;
-  line-height: 6rem;
-  background-color: transparent;
-  outline: transparent;
-  border-bottom: 6rem solid #ff9300;
-  border-left: 2.5rem solid transparent;
-  border-right: 2.5rem solid transparent;
-  height: 0;
-  color: #000;
-  border-top: 0rem;
-  font-size: 1.6rem;
-
-  &:hover {
-    border-bottom: 6rem solid #ebca9c;
-    color: #fff;
-  }
-
-  @media screen and (max-width: $mobile) {
-    width: 20rem;
-    height: 5rem;
-    line-height: 5rem;
-  }
-}
-
 html {
   font-size: 62.5%;
 } // 1rem = 10px

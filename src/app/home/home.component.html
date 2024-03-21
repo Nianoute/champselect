@@ -37,7 +37,14 @@
       required
     />
   </div>
-  <button type="submit" class="btn btn-primary" (click)="createGame()">
-    Create Game
-  </button>
+  <div class="all__btn">
+    <div class="btn__cancel">X</div>
+    <div class="btn__group">
+      <!-- <div class="btn__before"></div> -->
+      <button type="submit" class="btn" (click)="createGame()">
+        CREATE GAME
+      </button>
+      <!-- <div class="btn__after"></div> -->
+    </div>
+  </div>
 </form>

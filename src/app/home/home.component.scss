@@ -1,6 +1,7 @@
 @import "../variables";
 
 form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +9,7 @@ form {
   height: 100vh;
   background: url("../../assets/img/background.jpg") no-repeat center
     center/cover;
+  z-index: 0;
 
   h1 {
     font-size: 3rem;
@@ -33,6 +35,7 @@ form {
     justify-content: center;
     margin-bottom: 5rem;
     width: 80%;
+    overflow: hidden;
 
     label {
       font-size: 2rem;
@@ -61,6 +64,94 @@ form {
       background-color: $red;
       color: $white;
       border: 0.1rem solid $red;
+    }
+  }
+
+  .all__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    margin-top: 5rem;
+    border: $gold 0.1rem solid;
+    padding: 0.2rem;
+    border-radius: 5rem 0 0 5rem;
+    background: $black;
+
+    .btn__cancel {
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $white;
+      height: 4rem;
+      width: 4rem;
+      border: 0.2rem solid $gold;
+      font-size: 1.6rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+      margin-left: 1rem;
+      border-radius: 5rem;
+      &:hover {
+        background: $gold;
+      }
+    }
+
+    .btn__group {
+      width: 100%;
+      &:hover {
+        .btn,
+        .btn__after {
+          background: $blueLighted;
+          color: $black;
+        }
+      }
+      .btn {
+        width: 100%;
+        position: relative;
+        height: 5rem;
+        font-size: 1.6rem;
+        border-bottom: 0.2rem solid $blueLight;
+        border-top: 0.2rem solid $blueLighted;
+        border-left: 0px;
+        border-right: 0px;
+        background: #12384b;
+        color: $white;
+        font-weight: bold;
+        z-index: 2;
+
+        //little div just after the button
+      }
+      .btn__before {
+        height: 50px;
+        width: 40px;
+        background: $blueLight;
+        background-color: transparent;
+        position: relative;
+        right: -20px;
+        z-index: 3;
+        border-top: 0.2rem solid $blueLighted;
+        border-right: 0.2rem solid $blueLight;
+        border-bottom: 0.2rem solid transparent;
+        border-left: 0.2rem solid transparent;
+        border-radius: 100%;
+      }
+      .btn__after {
+        height: 36px;
+        width: 36px;
+        right: 18px;
+        top: 7px;
+        position: relative;
+        background: $blueLight;
+        z-index: 0;
+        background: #12384b;
+        border-top: 0.2rem solid $blueLighted;
+        border-right: 0.2rem solid $blueLight;
+        border-bottom: 0.2rem solid transparent;
+        border-left: 0.2rem solid transparent;
+        transform: rotate(45deg);
+      }
     }
   }
 }
