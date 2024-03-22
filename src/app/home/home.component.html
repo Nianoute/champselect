@@ -1,4 +1,8 @@
 <form>
+  <div class="background"></div>
+  <button class="btn__changeBackground" (click)="backgroundChange()">
+    Change Background
+  </button>
   <h1>Nianoute League of legends Draft.io</h1>
   <img src="assets/img/logo.png" alt="logo" class="logo" />
   <div class="form-group">
@@ -38,13 +42,12 @@
     />
   </div>
   <div class="all__btn">
-    <div class="btn__cancel">X</div>
-    <div class="btn__group">
-      <!-- <div class="btn__before"></div> -->
+    <div class="overflow">
+      <button class="btn__cancel" (click)="reset()">X</button>
+      <div class="before"></div>
       <button type="submit" class="btn" (click)="createGame()">
         CREATE GAME
       </button>
-      <!-- <div class="btn__after"></div> -->
     </div>
   </div>
 </form>

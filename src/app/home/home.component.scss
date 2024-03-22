@@ -7,9 +7,41 @@ form {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: url("../../assets/img/background.jpg") no-repeat center
-    center/cover;
   z-index: 0;
+
+  .btn__changeBackground {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: $black;
+    color: $white;
+    border: 0.1rem solid $gold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background: $gold;
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url("../../assets/img/background.jpg") no-repeat center
+      center/cover;
+    transition: all 1s ease-in-out;
+  }
+
+  .background__change {
+    background: url(https://media.giphy.com/media/2DfPsGDCCFR0VO2yhx/giphy.gif)
+      no-repeat center center/cover;
+  }
 
   h1 {
     font-size: 3rem;
@@ -48,7 +80,9 @@ form {
       font-size: 2rem;
       padding: 0.5rem;
       border-radius: 0.5rem;
-      border: 0.1rem solid #ccc;
+      border: 0.1rem solid $gold;
+      color: $white;
+      background: $black;
       &:focus-visible {
         outline: none;
       }
@@ -57,100 +91,94 @@ form {
     .blue {
       background-color: $blue;
       color: $white;
-      border: 0.1rem solid $blue;
+      border-color: $blueLighted;
     }
 
     .red {
       background-color: $red;
       color: $white;
-      border: 0.1rem solid $red;
+      border-color: $redLighted;
     }
   }
 
   .all__btn {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
     width: 35%;
+    height: 5.2rem;
     margin-top: 5rem;
     border: $gold 0.1rem solid;
-    padding: 0.2rem;
+    padding: 0.5rem;
     border-radius: 5rem 0 0 5rem;
     background: $black;
 
-    .btn__cancel {
-      background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: $white;
-      height: 4rem;
-      width: 4rem;
-      border: 0.2rem solid $gold;
-      font-size: 1.6rem;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      margin-right: 1rem;
-      margin-left: 1rem;
-      border-radius: 5rem;
-      &:hover {
-        background: $gold;
-      }
+    @media screen and (max-width: $mobile) {
+      width: 90%;
     }
 
-    .btn__group {
+    @media screen and (max-width: $tablet) and (min-width: $mobile) {
+      width: 75%;
+    }
+
+    .overflow {
+      overflow: hidden;
+      position: relative;
+      align-items: center;
       width: 100%;
-      &:hover {
-        .btn,
-        .btn__after {
-          background: $blueLighted;
-          color: $black;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      border-radius: 5rem 0 0 5rem;
+
+      .btn__cancel {
+        position: relative;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        height: 4rem;
+        width: 4rem;
+        border: 0.2rem solid $gold;
+        font-size: 1.6rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 5rem;
+        z-index: 3;
+        &:hover {
+          background: $gold;
         }
+      }
+      .before {
+        content: "";
+        position: absolute;
+        width: 10rem;
+        height: 7rem;
+        left: -5.5rem;
+        background: $black;
+        z-index: 2;
+        border-radius: 6rem;
+        border-right: 0.2rem solid $blueLighted;
+        transition: all 0.5s;
       }
       .btn {
         width: 100%;
         position: relative;
-        height: 5rem;
+        height: 4rem;
         font-size: 1.6rem;
-        border-bottom: 0.2rem solid $blueLight;
+        border-bottom: 0.2rem solid $blueLighted;
         border-top: 0.2rem solid $blueLighted;
         border-left: 0px;
-        border-right: 0px;
-        background: #12384b;
+        border-right: 0.2rem solid $blueLighted;
+        background: $blue;
         color: $white;
         font-weight: bold;
-        z-index: 2;
-
-        //little div just after the button
-      }
-      .btn__before {
-        height: 50px;
-        width: 40px;
-        background: $blueLight;
-        background-color: transparent;
-        position: relative;
-        right: -20px;
-        z-index: 3;
-        border-top: 0.2rem solid $blueLighted;
-        border-right: 0.2rem solid $blueLight;
-        border-bottom: 0.2rem solid transparent;
-        border-left: 0.2rem solid transparent;
-        border-radius: 100%;
-      }
-      .btn__after {
-        height: 36px;
-        width: 36px;
-        right: 18px;
-        top: 7px;
-        position: relative;
-        background: $blueLight;
-        z-index: 0;
-        background: #12384b;
-        border-top: 0.2rem solid $blueLighted;
-        border-right: 0.2rem solid $blueLight;
-        border-bottom: 0.2rem solid transparent;
-        border-left: 0.2rem solid transparent;
-        transform: rotate(45deg);
+        z-index: 1;
+        &:hover {
+          background: $blueLighted;
+          color: $black;
+        }
       }
     }
   }
