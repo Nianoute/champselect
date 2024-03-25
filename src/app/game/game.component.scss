@@ -1,0 +1,425 @@
+@import "../variables";
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: $gold;
+  margin: 2rem 0;
+}
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .draft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+
+    .blue,
+    .red {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2rem;
+
+      .team__name {
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+        background-color: $blue;
+      }
+
+      .first__pick,
+      .last__pick {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .pick {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          border-top: 0.1rem solid $gold;
+          border-bottom: 0.1rem solid $gold;
+          height: 8rem;
+          @media screen and (max-width: $tablet) {
+            height: 5rem;
+          }
+
+          img {
+            position: relative;
+            width: 5rem;
+            height: 5rem;
+            padding: 0.2rem;
+            border: 1px solid $gold;
+            border-radius: 50%;
+            background-color: $blue;
+            margin-left: 1rem;
+
+            @media screen and (max-width: $tablet) {
+              width: 3rem;
+              height: 3rem;
+            }
+          }
+
+          p {
+            font-size: 1.5rem;
+            margin-left: 1rem;
+
+            @media screen and (max-width: $tablet) {
+              display: none;
+            }
+          }
+
+          .timer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+
+            @media screen and (max-width: $mobile) {
+              display: none;
+            }
+
+            &::before {
+              //does an arrow to the left with annimation change background color
+              content: "";
+              display: inline-block;
+              width: 0;
+              height: 0;
+              border-top: 0.5rem solid transparent;
+              border-bottom: 0.5rem solid transparent;
+              border-right: 0.5rem solid $gold;
+              margin-right: 0.5rem;
+              animation: arrow 5s infinite;
+
+              @keyframes arrow {
+                0% {
+                  border-right: 0.5rem solid $gold;
+                }
+                50% {
+                  border-right: 0.5rem solid $blueLighted;
+                }
+                100% {
+                  border-right: 0.5rem solid $gold;
+                }
+              }
+            }
+          }
+        }
+
+        .actualPick {
+          //does animation background color change
+          background-color: $black;
+          animation: changeColorPick 2s infinite;
+
+          @keyframes changeColorPick {
+            0% {
+              background-color: $black;
+            }
+            50% {
+              background-color: $gold;
+            }
+            100% {
+              background-color: $black;
+            }
+          }
+        }
+
+        .actualBan {
+          //does animation background color change
+          background-color: $black;
+          animation: changeColorBan 2s infinite;
+
+          @keyframes changeColorBan {
+            0% {
+              background-color: $black;
+            }
+            50% {
+              background-color: $red;
+            }
+            100% {
+              background-color: $black;
+            }
+          }
+        }
+      }
+
+      .first__pick {
+        margin-bottom: 5rem;
+      }
+    }
+
+    .red {
+      .team__name {
+        background-color: $redLight;
+      }
+      .first__pick,
+      .last__pick {
+        .pick img {
+          background-color: $redLight;
+          margin-right: 1rem;
+          margin-left: 0rem;
+        }
+
+        .pick p {
+          margin-right: 1rem;
+          margin-left: 0rem;
+        }
+      }
+    }
+
+    .champSelect {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 2rem;
+
+      .search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+
+        @media screen and (max-width: $desktop) {
+          flex-direction: column;
+        }
+
+        .role {
+          input {
+            display: none;
+          }
+          label:hover img {
+            cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png),
+              auto;
+            filter: drop-shadow(0 0 10px $gold);
+          }
+
+          input:checked + label img {
+            filter: drop-shadow(0 0 10px $white);
+          }
+
+          label img {
+            margin: 0.5rem;
+          }
+        }
+
+        .search__bar {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 400px;
+          height: 4rem;
+          border: 0.1rem solid $gold;
+          border-radius: 0.5rem;
+          background: $black;
+          color: $white;
+
+          @media screen and (max-width: $desktop) {
+            width: 85%;
+            margin-top: 1rem;
+          }
+
+          input {
+            width: 100%;
+            height: 100%;
+            font-size: 2rem;
+            padding: 0.5rem;
+            border: none;
+            background: $black;
+            color: $white;
+            &:focus-visible {
+              outline: none;
+            }
+          }
+
+          img {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+
+      .champions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin: 2rem auto;
+        overflow-y: auto;
+        height: 60vh;
+        margin-left: -0.5rem;
+
+        @media screen and (max-width: $tablet) {
+          height: 50vh;
+        }
+
+        @media screen and (max-width: $mobile) {
+          height: 40vh;
+        }
+        &::-webkit-scrollbar {
+          width: 0.2rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $gold;
+        }
+
+        .champ {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: $black;
+          color: $white;
+          margin: 1rem;
+          cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png),
+            auto;
+
+          @media screen and (max-width: $tablet) {
+            width: 32%;
+            margin: 0.1rem;
+          }
+
+          img {
+            width: 10rem;
+            height: 10rem;
+            margin-top: 0.5rem;
+            &:hover {
+              filter: drop-shadow(0 0 10px $gold);
+            }
+
+            @media screen and (max-width: $tablet) {
+              width: 100%;
+              height: auto;
+            }
+          }
+
+          p {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+    align-items: flex-start;
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 10rem;
+        height: 3rem;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        background-color: $black;
+        color: $white;
+        font-size: 1.5rem;
+        cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png),
+          auto;
+
+        &:hover {
+          filter: drop-shadow(0 0 10px $gold);
+        }
+      }
+
+      .stop {
+        background-color: $red;
+      }
+    }
+
+    .blue__ban,
+    .red__ban {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      color: $white;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+
+      @media screen and (max-width: $desktop) {
+        flex-wrap: nowrap;
+        flex-direction: column;
+      }
+
+      .ban {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 10rem;
+
+        border: 1px solid $gold;
+        background-color: $black;
+
+        @media screen and (max-width: $desktop) {
+          margin-bottom: 1rem;
+          height: 100%;
+        }
+
+        img {
+          position: relative;
+          width: 10rem;
+          height: 10rem;
+          padding: 0.2rem;
+
+          @media screen and (max-width: $desktop) {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .first__ban {
+        display: flex;
+        flex-direction: row;
+        margin-right: 5rem;
+        @media screen and (max-width: 1800px) {
+          margin-right: 0;
+        }
+
+        @media screen and (max-width: $desktop) {
+          flex-direction: column;
+          margin-bottom: 2rem;
+        }
+      }
+
+      .last__ban {
+        display: flex;
+        flex-direction: row;
+
+        @media screen and (max-width: $tablet) {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
