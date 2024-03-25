@@ -44,6 +44,7 @@ export class HomeComponent {
       localStorage.setItem('bluename', this.bluename);
       localStorage.setItem('redname', this.redname);
       localStorage.setItem('gamename', this.gamename);
+      window.location.href = '/game';
     }
   }
 
