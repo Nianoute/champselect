@@ -1,0 +1,53 @@
+<form>
+  <div class="background"></div>
+  <button class="btn__changeBackground" (click)="backgroundChange()">
+    Change Background
+  </button>
+  <h1>Nianoute League of legends Draft.io</h1>
+  <img src="assets/img/logo.png" alt="logo" class="logo" />
+  <div class="form-group">
+    <label for="gamename">Game Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="gamename"
+      name="gamename"
+      [(ngModel)]="gamename"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="bluename">Blue Team Name</label>
+    <input
+      type="text"
+      class="blue"
+      id="bluename"
+      name="bluename"
+      [(ngModel)]="bluename"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="redname">Red Team Name</label>
+    <input
+      type="text"
+      class="red"
+      id="redname"
+      name="redname"
+      [(ngModel)]="redname"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+  </div>
+  <div class="all__btn">
+    <div class="overflow">
+      <button class="btn__cancel" (click)="reset()">X</button>
+      <div class="before"></div>
+      <button type="submit" class="btn" (click)="createGame()">
+        CREATE GAME
+      </button>
+    </div>
+  </div>
+</form>

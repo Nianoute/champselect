@@ -1,0 +1,185 @@
+@import "../variables";
+
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 0;
+
+  .btn__changeBackground {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: $black;
+    color: $white;
+    border: 0.1rem solid $gold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background: $gold;
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url("../../assets/img/background.jpg") no-repeat center
+      center/cover;
+    transition: all 1s ease-in-out;
+  }
+
+  .background__change {
+    background: url(https://media.giphy.com/media/2DfPsGDCCFR0VO2yhx/giphy.gif)
+      no-repeat center center/cover;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .logo {
+    width: 20rem;
+    height: 20rem;
+    margin-bottom: 5rem;
+
+    @media screen and (max-width: $mobile) {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin-bottom: 5rem;
+    width: 80%;
+    overflow: hidden;
+
+    label {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      height: 4rem;
+      font-size: 2rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 0.1rem solid $gold;
+      color: $white;
+      background: $black;
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .blue {
+      background-color: $blue;
+      color: $white;
+      border-color: $blueLighted;
+    }
+
+    .red {
+      background-color: $red;
+      color: $white;
+      border-color: $redLighted;
+    }
+  }
+
+  .all__btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 35%;
+    height: 5.2rem;
+    margin-top: 5rem;
+    border: $gold 0.1rem solid;
+    padding: 0.5rem;
+    border-radius: 5rem 0 0 5rem;
+    background: $black;
+
+    @media screen and (max-width: $mobile) {
+      width: 90%;
+    }
+
+    @media screen and (max-width: $tablet) and (min-width: $mobile) {
+      width: 75%;
+    }
+
+    .overflow {
+      overflow: hidden;
+      position: relative;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      border-radius: 5rem 0 0 5rem;
+
+      .btn__cancel {
+        position: relative;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        height: 4rem;
+        width: 4rem;
+        border: 0.2rem solid $gold;
+        font-size: 1.6rem;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        border-radius: 5rem;
+        z-index: 3;
+        &:hover {
+          background: $gold;
+        }
+      }
+      .before {
+        content: "";
+        position: absolute;
+        width: 10rem;
+        height: 7rem;
+        left: -5.5rem;
+        background: $black;
+        z-index: 2;
+        border-radius: 6rem;
+        border-right: 0.2rem solid $blueLighted;
+        transition: all 0.5s;
+      }
+      .btn {
+        width: 100%;
+        position: relative;
+        height: 4rem;
+        font-size: 1.6rem;
+        border-bottom: 0.2rem solid $blueLighted;
+        border-top: 0.2rem solid $blueLighted;
+        border-left: 0px;
+        border-right: 0.2rem solid $blueLighted;
+        background: $blue;
+        color: $white;
+        font-weight: bold;
+        z-index: 1;
+        &:hover {
+          background: $blueLighted;
+          color: $black;
+        }
+      }
+    }
+  }
+}

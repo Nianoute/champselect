@@ -1,0 +1,178 @@
+<h1>{{ gamename }}</h1>
+<div class="game">
+  <div class="draft">
+    <div class="blue">
+      <div class="team__name">
+        <h2>{{ bluename }}</h2>
+      </div>
+      <div class="first__pick">
+        <div class="pick pick1">
+          <img src="../../assets/img/game/role/Top_icon.webp" alt="top" />
+          <p class="champname">{{ listBluePick[0].pick1 }}</p>
+        </div>
+        <div class="pick pick2">
+          <img src="../../assets/img/game/role/Jungle_icon.webp" alt="jgl" />
+          <p>{{ listBluePick[0].pick2 }}</p>
+        </div>
+        <div class="pick pick3">
+          <img src="../../assets/img/game/role/Middle_icon.webp" alt="mid" />
+          <p>{{ listBluePick[0].pick3 }}</p>
+        </div>
+      </div>
+      <div class="last__pick">
+        <div class="pick4 pick">
+          <img src="../../assets/img/game/role/Bottom_icon.webp" alt="adc" />
+          <p>{{ listBluePick[0].pick4 }}</p>
+        </div>
+        <div class="pick pick5">
+          <img src="../../assets/img/game/role/Support_icon.webp" alt="sup" />
+          <p>{{ listBluePick[0].pick5 }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="champSelect">
+      <div class="search">
+        <div class="role">
+          <input type="checkbox" id="top" name="role" value="top" />
+          <label for="top"
+            ><img src="../../assets/img/game/role/Top_icon.webp"
+          /></label>
+          <input type="checkbox" id="jgl" name="role" value="jgl" />
+          <label for="jgl"
+            ><img src="../../assets/img/game/role/Jungle_icon.webp"
+          /></label>
+          <input type="checkbox" id="mid" name="role" value="mid" />
+          <label for="mid"
+            ><img src="../../assets/img/game/role/Middle_icon.webp"
+          /></label>
+          <input type="checkbox" id="adc" name="role" value="adc" />
+          <label for="adc"
+            ><img src="../../assets/img/game/role/Bottom_icon.webp"
+          /></label>
+          <input type="checkbox" id="sup" name="role" value="sup" />
+          <label for="sup"
+            ><img src="../../assets/img/game/role/Support_icon.webp"
+          /></label>
+        </div>
+        <div class="search__bar">
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="champions">
+        <div
+          class="champ"
+          *ngFor="let champ of champions"
+          (click)="champ.open && started && actualChamp(champ.id)"
+          [class.selected]="champ.id === actualChampion"
+        >
+          <img
+            [src]="champ.img"
+            alt="champ"
+            [class.disabled]="champ.open === false"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="red">
+      <div class="team__name">
+        <h2>{{ redname }}</h2>
+      </div>
+      <div class="first__pick">
+        <div class="pick pick1">
+          <p>{{ listRedPick[0].pick1 }}</p>
+          <img src="../../assets/img/game/role/Top_icon.webp" alt="top" />
+        </div>
+        <div class="pick pick2">
+          <p>{{ listRedPick[0].pick2 }}</p>
+          <img src="../../assets/img/game/role/Jungle_icon.webp" alt="jgl" />
+        </div>
+        <div class="pick pick3">
+          <p>{{ listRedPick[0].pick3 }}</p>
+          <img src="../../assets/img/game/role/Middle_icon.webp" alt="mid" />
+        </div>
+      </div>
+      <div class="last__pick">
+        <div class="pick pick4">
+          <p>{{ listRedPick[0].pick4 }}</p>
+          <img src="../../assets/img/game/role/Bottom_icon.webp" alt="adc" />
+        </div>
+        <div class="pick pick5">
+          <p>{{ listRedPick[0].pick5 }}</p>
+          <img src="../../assets/img/game/role/Support_icon.webp" alt="sup" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="blue__ban">
+      <div class="first__ban">
+        <div class="ban ban1">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+        <div class="ban ban2">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+        <div class="ban ban3">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+      </div>
+
+      <div class="last__ban">
+        <div class="ban ban4">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+        <div class="ban ban5">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="started" *ngIf="started">
+        <button
+          class="lock__in"
+          *ngIf="picking"
+          (click)="pickChampion()"
+          [disabled]="actualChampion === -1"
+        >
+          Lock-in
+        </button>
+        <button
+          class="ban__button"
+          *ngIf="!picking"
+          (click)="banChampion()"
+          [disabled]="actualChampion === -1"
+        >
+          Ban
+        </button>
+      </div>
+      <button class="reset" (click)="reset()">Reset</button>
+      <div class="notStarted" *ngIf="!started">
+        <button (click)="startGame()" *ngIf="!started" class="start">
+          Start Game
+        </button>
+      </div>
+    </div>
+    <div class="red__ban">
+      <div class="first__ban">
+        <div class="ban ban1">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+        <div class="ban ban2">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+        <div class="ban ban3">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+      </div>
+
+      <div class="last__ban">
+        <div class="ban ban4">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+        <div class="ban ban5">
+          <img src="../../assets/img/game/ban.png" alt="ban" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

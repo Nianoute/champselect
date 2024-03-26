@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import "..//src/app/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Beaufort for LOL", sans-serif;
+  cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor.png),
+    auto;
+}
+
+input:hover,
+label:hover,
+button:hover {
+  cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png),
+    auto;
+}
+
+html {
+  font-size: 62.5%;
+} // 1rem = 10px
+
+body {
+  background-color: $black;
+  color: $white;
+}
+.small {
+  font-size: 0.8rem;
+  color: $black;
+  line-height: 16px;
+}
+.unstyle-text {
+  color: $white;
+  text-decoration: none;
+}
+
+.container-component {
+  margin: 0 2rem;
+}
