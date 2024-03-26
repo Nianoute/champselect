@@ -8,26 +8,25 @@
       <div class="first__pick">
         <div class="pick pick1">
           <img src="../../assets/img/game/role/Top_icon.webp" alt="top" />
-          <p class="champname">{{ blue__pick1 }}</p>
-          <p class="timer">{{ timer }}</p>
+          <p class="champname">{{ listBluePick[0].pick1 }}</p>
         </div>
         <div class="pick pick2">
           <img src="../../assets/img/game/role/Jungle_icon.webp" alt="jgl" />
-          <p>{{ blue__pick2 }}</p>
+          <p>{{ listBluePick[0].pick2 }}</p>
         </div>
         <div class="pick pick3">
           <img src="../../assets/img/game/role/Middle_icon.webp" alt="mid" />
-          <p>{{ blue__pick3 }}</p>
+          <p>{{ listBluePick[0].pick3 }}</p>
         </div>
       </div>
       <div class="last__pick">
         <div class="pick4 pick">
           <img src="../../assets/img/game/role/Bottom_icon.webp" alt="adc" />
-          <p>{{ blue__pick4 }}</p>
+          <p>{{ listBluePick[0].pick4 }}</p>
         </div>
         <div class="pick pick5">
           <img src="../../assets/img/game/role/Support_icon.webp" alt="sup" />
-          <p>{{ blue__pick5 }}</p>
+          <p>{{ listBluePick[0].pick5 }}</p>
         </div>
       </div>
     </div>
@@ -60,8 +59,17 @@
         </div>
       </div>
       <div class="champions">
-        <div class="champ" *ngFor="let champ of champions">
-          <img [src]="champ.img" alt="champ" />
+        <div
+          class="champ"
+          *ngFor="let champ of champions"
+          (click)="champ.open && started && actualChamp(champ.id)"
+          [class.selected]="champ.id === actualChampion"
+        >
+          <img
+            [src]="champ.img"
+            alt="champ"
+            [class.disabled]="champ.open === false"
+          />
         </div>
       </div>
     </div>
@@ -71,26 +79,25 @@
       </div>
       <div class="first__pick">
         <div class="pick pick1">
-          <p class="timer">{{ timer }}</p>
-          <p>{{ red__pick1 }}</p>
+          <p>{{ listRedPick[0].pick1 }}</p>
           <img src="../../assets/img/game/role/Top_icon.webp" alt="top" />
         </div>
         <div class="pick pick2">
-          <p>{{ red__pick2 }}</p>
+          <p>{{ listRedPick[0].pick2 }}</p>
           <img src="../../assets/img/game/role/Jungle_icon.webp" alt="jgl" />
         </div>
         <div class="pick pick3">
-          <p>{{ red__pick3 }}</p>
+          <p>{{ listRedPick[0].pick3 }}</p>
           <img src="../../assets/img/game/role/Middle_icon.webp" alt="mid" />
         </div>
       </div>
       <div class="last__pick">
         <div class="pick pick4">
-          <p>{{ red__pick4 }}</p>
+          <p>{{ listRedPick[0].pick4 }}</p>
           <img src="../../assets/img/game/role/Bottom_icon.webp" alt="adc" />
         </div>
         <div class="pick pick5">
-          <p>{{ red__pick5 }}</p>
+          <p>{{ listRedPick[0].pick5 }}</p>
           <img src="../../assets/img/game/role/Support_icon.webp" alt="sup" />
         </div>
       </div>
@@ -120,7 +127,30 @@
       </div>
     </div>
     <div class="buttons">
-      <button>Lock In</button>
+      <div class="started" *ngIf="started">
+        <button
+          class="lock__in"
+          *ngIf="picking"
+          (click)="pickChampion()"
+          [disabled]="actualChampion === -1"
+        >
+          Lock-in
+        </button>
+        <button
+          class="ban__button"
+          *ngIf="!picking"
+          (click)="banChampion()"
+          [disabled]="actualChampion === -1"
+        >
+          Ban
+        </button>
+      </div>
+      <button class="reset" (click)="reset()">Reset</button>
+      <div class="notStarted" *ngIf="!started">
+        <button (click)="startGame()" *ngIf="!started" class="start">
+          Start Game
+        </button>
+      </div>
     </div>
     <div class="red__ban">
       <div class="first__ban">

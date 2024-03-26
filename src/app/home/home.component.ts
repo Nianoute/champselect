@@ -52,9 +52,7 @@ export class HomeComponent {
     this.gamename = '';
     this.bluename = '';
     this.redname = '';
-    localStorage.removeItem('gamename');
-    localStorage.removeItem('bluename');
-    localStorage.removeItem('redname');
+    localStorage.clear();
   }
 
   async backgroundChange() {

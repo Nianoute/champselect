@@ -29,8 +29,27 @@ h1 {
       .team__name {
         font-size: 2rem;
         text-align: center;
-        width: 100%;
+        width: 16rem;
         background-color: $blue;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          width: 0.2rem;
+          height: 0.2rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $gold;
+        }
+
+        @media screen and (max-width: $tablet) {
+          width: 10rem;
+          font-size: 1.5rem;
+        }
+
+        @media screen and (max-width: $mobile) {
+          width: 8rem;
+          font-size: 1rem;
+        }
       }
 
       .first__pick,
@@ -164,6 +183,9 @@ h1 {
       }
       .first__pick,
       .last__pick {
+        .pick {
+          justify-content: flex-end;
+        }
         .pick img {
           background-color: $redLight;
           margin-right: 1rem;
@@ -269,6 +291,7 @@ h1 {
         @media screen and (max-width: $mobile) {
           height: 40vh;
         }
+
         &::-webkit-scrollbar {
           width: 0.2rem;
         }
@@ -283,8 +306,6 @@ h1 {
           background: $black;
           color: $white;
           margin: 1rem;
-          cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png),
-            auto;
 
           @media screen and (max-width: $tablet) {
             width: 32%;
@@ -292,6 +313,8 @@ h1 {
           }
 
           img {
+            cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png),
+              auto;
             width: 10rem;
             height: 10rem;
             margin-top: 0.5rem;
@@ -303,6 +326,17 @@ h1 {
               width: 100%;
               height: auto;
             }
+          }
+
+          .disabled {
+            filter: grayscale(100%);
+            &:hover {
+              filter: grayscale(100%) drop-shadow(0 0 10px $red);
+            }
+          }
+
+          .locked {
+            filter: drop-shadow(0 0 10px $white);
           }
 
           p {
@@ -328,14 +362,11 @@ h1 {
       align-items: center;
       width: 100%;
 
-      button {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 10rem;
-        height: 3rem;
-        margin: 0.5rem;
+      .reset {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 1rem;
         padding: 0.5rem;
         border-radius: 0.5rem;
         background-color: $black;
@@ -343,14 +374,65 @@ h1 {
         font-size: 1.5rem;
         cursor: url(https://brand.riotgames.com/images/league-of-legends/cursor-pointer.png),
           auto;
+        border: 0.1rem solid $gold;
 
         &:hover {
-          filter: drop-shadow(0 0 10px $gold);
+          background-color: $gold;
         }
       }
 
-      .stop {
-        background-color: $red;
+      .started,
+      .notStarted {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 5.2rem;
+        margin-top: 5rem;
+        border: #a07a2e 0.1rem solid;
+        padding: 0.5rem;
+        border-radius: 5rem 0 0 5rem;
+        background: #03111a;
+        .lock__in,
+        .ban__button,
+        .start {
+          width: 100%;
+          position: relative;
+          height: 4rem;
+          font-size: 1.6rem;
+          border: 0.2rem solid $blueLighted;
+          background: $blue;
+          color: $white;
+          font-weight: bold;
+          z-index: 1;
+          border-radius: 5rem 0 0 5rem;
+          &:hover {
+            background: $blueLighted;
+            color: $black;
+          }
+
+          &:disabled {
+            background: $black;
+            color: $white;
+            cursor: not-allowed;
+          }
+        }
+
+        .ban__button {
+          border: 0.2rem solid $redLighted;
+          background: $red;
+
+          &:hover {
+            background: $red;
+            color: $white;
+          }
+
+          &:disabled {
+            background: $black;
+            color: $white;
+            cursor: not-allowed;
+          }
+        }
       }
     }
 
@@ -390,6 +472,7 @@ h1 {
           width: 10rem;
           height: 10rem;
           padding: 0.2rem;
+          max-width: 12.4rem;
 
           @media screen and (max-width: $desktop) {
             width: 100%;
