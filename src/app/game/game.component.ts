@@ -308,6 +308,10 @@ export class GameComponent {
     localStorage.setItem('actualStep', this.actualStep.toString());
     localStorage.setItem('actualStepPick', this.actualStepPick.toString());
     localStorage.setItem('picking', this.picking.toString());
+
+    if (this.actualStepPick === 11) {
+      window.location.href = '/draft';
+    }
   }
 
   async setPickChampion(actualChampion: number, actualStepPick: number) {

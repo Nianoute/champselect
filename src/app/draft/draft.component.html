@@ -1,0 +1,21 @@
+<div class="draft">
+  <h1>Draft</h1>
+  <div class="pick">
+    <div class="blue__picks">
+      <div class="bpick" *ngFor="let bpick of listBluePick">
+        <div class="bpick__champion">
+          <img [src]="bpick.splash" alt="bpick.name" />
+        </div>
+      </div>
+    </div>
+    <div class="red__picks">
+      <div class="rpick" *ngFor="let rpick of listRedPick">
+        <div class="rpick__champion">
+          <img [src]="rpick.splash" alt="rpick.name" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ban"></div>
+  <div class="order"></div>
+</div>
