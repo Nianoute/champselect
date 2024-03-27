@@ -41,6 +41,7 @@ export class HomeComponent {
     }
 
     if (!this.error) {
+      localStorage.clear();
       localStorage.setItem('bluename', this.bluename);
       localStorage.setItem('redname', this.redname);
       localStorage.setItem('gamename', this.gamename);

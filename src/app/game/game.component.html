@@ -68,7 +68,7 @@
           <img
             [src]="champ.img"
             alt="champ"
-            [class.disabled]="champ.open === false"
+            [class.disabled]="champ.open === false || !started"
           />
         </div>
       </div>
