@@ -1,21 +1,123 @@
 <div class="draft">
-  <h1>Draft</h1>
+  <div class="team">
+    <div class="blue">
+      <h2>{{ bluename }}</h2>
+    </div>
+    <div class="vs">
+      <h2>VS</h2>
+    </div>
+    <div class="red">
+      <h2>{{ redname }}</h2>
+    </div>
+  </div>
   <div class="pick">
     <div class="blue__picks">
       <div class="bpick" *ngFor="let bpick of listBluePick">
         <div class="bpick__champion">
-          <img [src]="bpick.splash" alt="bpick.name" />
+          <img [src]="bpick.splash" alt="bpick.name" class="splash" />
+          <p>{{ bpick.name }}</p>
+          <img [src]="bpick.roleActual" alt="bpick.name" class="role" />
+          <button
+            class="change"
+            (click)="
+              !changeRoleActive
+                ? changeRole(bpick, true)
+                : changeRole2(bpick, true)
+            "
+            [disabled]="!changeBlueRole"
+            *ngIf="role.id !== bpick.id"
+          >
+            Change
+          </button>
+          <button
+            class="change"
+            (click)="changeRoleStop()"
+            *ngIf="role.id === bpick.id"
+          >
+            Stop
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="map">
+      <div class="img__map" alt="map">
+        <div class="icon">
+          <div class="pick pick__top__blue">
+            <img [src]="listBluePick[0].img" alt="bpick.name" />
+          </div>
+          <div class="pick pick__jungle__blue">
+            <img [src]="listBluePick[1].img" alt="bpick.name" />
+          </div>
+          <div class="pick pick__mid__blue">
+            <img [src]="listBluePick[2].img" alt="bpick.name" />
+          </div>
+          <div class="pick pick__adc__blue">
+            <img [src]="listBluePick[3].img" alt="bpick.name" />
+          </div>
+          <div class="pick pick__support__blue">
+            <img [src]="listBluePick[4].img" alt="bpick.name" />
+          </div>
+
+          <div class="pick pick__top__red">
+            <img [src]="listRedPick[0].img" alt="rpick.name" />
+          </div>
+          <div class="pick pick__jungle__red">
+            <img [src]="listRedPick[1].img" alt="rpick.name" />
+          </div>
+          <div class="pick pick__mid__red">
+            <img [src]="listRedPick[2].img" alt="rpick.name" />
+          </div>
+          <div class="pick pick__adc__red">
+            <img [src]="listRedPick[3].img" alt="rpick.name" />
+          </div>
+          <div class="pick pick__support__red">
+            <img [src]="listRedPick[4].img" alt="rpick.name" />
+          </div>
         </div>
       </div>
     </div>
     <div class="red__picks">
       <div class="rpick" *ngFor="let rpick of listRedPick">
         <div class="rpick__champion">
-          <img [src]="rpick.splash" alt="rpick.name" />
+          <img [src]="rpick.splash" alt="rpick.name" class="splash" />
+          <p>{{ rpick.name }}</p>
+          <img [src]="rpick.roleActual" alt="rpick.name" class="role" />
+          <button
+            class="change"
+            (click)="
+              !changeRoleActive
+                ? changeRole(rpick, false)
+                : changeRole2(rpick, false)
+            "
+            [disabled]="!changeRedRole"
+            *ngIf="role.id !== rpick.id"
+          >
+            Change
+          </button>
+          <button
+            class="change"
+            (click)="changeRoleStop()"
+            *ngIf="role.id === rpick.id"
+          >
+            Stop
+          </button>
         </div>
       </div>
     </div>
   </div>
-  <div class="ban"></div>
-  <div class="order"></div>
+  <div class="bottom">
+    <h2>Pick & Ban Order</h2>
+    <div class="order">
+      <div
+        class="order__pick"
+        *ngFor="let order of orders"
+        [class.order__pick__blue]="order.team === true"
+        [class.order__pick__red]="order.team === false"
+      >
+        <img [src]="order.img" alt="order" [class.ban]="order.ban === true" />
+        <p>{{ order.name }}</p>
+      </div>
+    </div>
+  </div>
+  <button class="btn" (click)="reset()">Reset</button>
 </div>

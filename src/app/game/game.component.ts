@@ -67,6 +67,8 @@ export class GameComponent {
   ngOnInit() {
     if (this.gamename === '' || this.bluename === '' || this.redname === '') {
       window.location.href = '/';
+    } else if (this.actualStepPick === 11) {
+      window.location.href = '/draft';
     } else {
       if (this.started) {
         if (this.picking === true) {
