@@ -7,7 +7,6 @@ const championsList = [
     id: 1,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Ahri',
@@ -17,7 +16,6 @@ const championsList = [
     id: 2,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Akali',
@@ -27,7 +25,6 @@ const championsList = [
     id: 3,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Akshan',
@@ -37,7 +34,6 @@ const championsList = [
     id: 4,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Alistar',
@@ -47,7 +43,6 @@ const championsList = [
     id: 5,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: 'Amumu',
@@ -57,7 +52,6 @@ const championsList = [
     id: 6,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Anivia',
@@ -67,7 +61,6 @@ const championsList = [
     id: 7,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Annie',
@@ -77,7 +70,6 @@ const championsList = [
     id: 8,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Aphelios',
@@ -87,7 +79,6 @@ const championsList = [
     id: 9,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Ashe',
@@ -97,7 +88,6 @@ const championsList = [
     id: 10,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Aurelion Sol',
@@ -107,7 +97,6 @@ const championsList = [
     id: 11,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Azir',
@@ -117,7 +106,6 @@ const championsList = [
     id: 12,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Bard',
@@ -127,7 +115,6 @@ const championsList = [
     id: 13,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: "Bel'veth",
@@ -137,7 +124,6 @@ const championsList = [
     id: 14,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Blitzcrank',
@@ -147,7 +133,6 @@ const championsList = [
     id: 15,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: 'Brand',
@@ -157,7 +142,6 @@ const championsList = [
     id: 16,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: 'Braum',
@@ -167,7 +151,6 @@ const championsList = [
     id: 17,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: 'Caitlyn',
@@ -177,7 +160,6 @@ const championsList = [
     id: 18,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Camille',
@@ -187,7 +169,6 @@ const championsList = [
     id: 19,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Cassiopeia',
@@ -197,7 +178,6 @@ const championsList = [
     id: 20,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: "Cho'Gath",
@@ -207,7 +187,6 @@ const championsList = [
     id: 21,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Corki',
@@ -217,7 +196,6 @@ const championsList = [
     id: 22,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Darius',
@@ -227,7 +205,6 @@ const championsList = [
     id: 23,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Diana',
@@ -237,7 +214,6 @@ const championsList = [
     id: 24,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Dr. Mundo',
@@ -247,7 +223,6 @@ const championsList = [
     id: 25,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Draven',
@@ -257,7 +232,6 @@ const championsList = [
     id: 26,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Ekko',
@@ -267,7 +241,6 @@ const championsList = [
     id: 27,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Elise',
@@ -277,7 +250,6 @@ const championsList = [
     id: 28,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Evelynn',
@@ -287,7 +259,6 @@ const championsList = [
     id: 29,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Ezreal',
@@ -297,7 +268,6 @@ const championsList = [
     id: 30,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Fiddlesticks',
@@ -307,7 +277,6 @@ const championsList = [
     id: 31,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: 'Fiora',
@@ -317,7 +286,6 @@ const championsList = [
     id: 32,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Fizz',
@@ -327,7 +295,6 @@ const championsList = [
     id: 33,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Galio',
@@ -337,7 +304,6 @@ const championsList = [
     id: 34,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Gangplank',
@@ -347,7 +313,6 @@ const championsList = [
     id: 35,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Garen',
@@ -357,7 +322,6 @@ const championsList = [
     id: 36,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Gnar',
@@ -367,7 +331,6 @@ const championsList = [
     id: 37,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Gragas',
@@ -377,7 +340,6 @@ const championsList = [
     id: 38,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Graves',
@@ -387,7 +349,6 @@ const championsList = [
     id: 39,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Gwen',
@@ -397,7 +358,6 @@ const championsList = [
     id: 40,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Hecarim',
@@ -407,7 +367,6 @@ const championsList = [
     id: 41,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Heimerdinger',
@@ -417,7 +376,6 @@ const championsList = [
     id: 42,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Illaoi',
@@ -427,7 +385,6 @@ const championsList = [
     id: 43,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Irelia',
@@ -437,7 +394,6 @@ const championsList = [
     id: 44,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Ivern',
@@ -447,7 +403,6 @@ const championsList = [
     id: 45,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Janna',
@@ -457,7 +412,6 @@ const championsList = [
     id: 46,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: 'Jarvan IV',
@@ -467,7 +421,6 @@ const championsList = [
     id: 47,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Jax',
@@ -477,7 +430,6 @@ const championsList = [
     id: 48,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Jayce',
@@ -487,7 +439,6 @@ const championsList = [
     id: 49,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Jhin',
@@ -497,7 +448,6 @@ const championsList = [
     id: 50,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Jinx',
@@ -507,7 +457,6 @@ const championsList = [
     id: 51,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: "Kai'Sa",
@@ -517,7 +466,6 @@ const championsList = [
     id: 52,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Kalista',
@@ -527,7 +475,6 @@ const championsList = [
     id: 53,
     role: 'ADC',
     open: true,
-    locked: false,
   },
   {
     name: 'Karma',
@@ -537,7 +484,6 @@ const championsList = [
     id: 54,
     role: 'Support',
     open: true,
-    locked: false,
   },
   {
     name: 'Karthus',
@@ -547,7 +493,6 @@ const championsList = [
     id: 55,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Kassadin',
@@ -557,7 +502,6 @@ const championsList = [
     id: 56,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Katarina',
@@ -567,7 +511,6 @@ const championsList = [
     id: 57,
     role: 'Mid',
     open: true,
-    locked: false,
   },
   {
     name: 'Kayle',
@@ -577,7 +520,6 @@ const championsList = [
     id: 58,
     role: 'Top',
     open: true,
-    locked: false,
   },
   {
     name: 'Kayn',
@@ -587,7 +529,6 @@ const championsList = [
     id: 59,
     role: 'Jungle',
     open: true,
-    locked: false,
   },
   {
     name: 'Kennen',
@@ -597,7 +538,6 @@ const championsList = [
     id: 60,
     role: 'Top',
     open: true,
-    locked: false,
   },
 ];
 

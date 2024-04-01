@@ -211,10 +211,6 @@ export class GameComponent {
   }
 
   async actualChamp(championId: any) {
-    if (this.actualChampion.id !== 0) {
-      this.champions[this.actualChampion.id].locked = false;
-    }
-    this.champions[championId.id].locked = true;
     if (!this.picking) {
       if (this.actualStepBan % 2 !== 0) {
         let step = this.actualStepBan / 2 - 0.5;
@@ -298,7 +294,6 @@ export class GameComponent {
     localStorage.setItem('actualStep', this.actualStep.toString());
     localStorage.setItem('actualStepPick', this.actualStepPick.toString());
     localStorage.setItem('picking', this.picking.toString());
-    console.log(this.ListPick);
 
     if (this.actualStepPick === 11) {
       window.location.href = '/draft';
@@ -307,7 +302,6 @@ export class GameComponent {
 
   async setChampLockOff(actualChampion: number) {
     this.champions[actualChampion].open = false;
-    this.champions[actualChampion].locked = false;
     this.banList.push(this.champions[actualChampion]);
     localStorage.setItem('banList', JSON.stringify(this.banList));
     if (this.actualStepBan % 2 !== 0) {
@@ -322,9 +316,6 @@ export class GameComponent {
   }
 
   async setChampLockIn(actualChampion: number) {
-    console.log(actualChampion);
-    console.log(this.champions[actualChampion]);
-    this.champions[actualChampion].locked = false;
     this.champions[actualChampion].open = false;
     this.ListPick.push(this.champions[actualChampion]);
     localStorage.setItem('listPick', JSON.stringify(this.ListPick));
