@@ -5,29 +5,13 @@
       <div class="team__name">
         <h2>{{ bluename }}</h2>
       </div>
-      <div class="first__pick">
-        <div class="pick pick1">
-          <img src="../../assets/img/game/role/Top_icon.webp" alt="top" />
-          <p class="champname">{{ listBluePick[0].pick1 }}</p>
-        </div>
-        <div class="pick pick2">
-          <img src="../../assets/img/game/role/Jungle_icon.webp" alt="jgl" />
-          <p>{{ listBluePick[0].pick2 }}</p>
-        </div>
-        <div class="pick pick3">
-          <img src="../../assets/img/game/role/Middle_icon.webp" alt="mid" />
-          <p>{{ listBluePick[0].pick3 }}</p>
-        </div>
-      </div>
-      <div class="last__pick">
-        <div class="pick4 pick">
-          <img src="../../assets/img/game/role/Bottom_icon.webp" alt="adc" />
-          <p>{{ listBluePick[0].pick4 }}</p>
-        </div>
-        <div class="pick pick5">
-          <img src="../../assets/img/game/role/Support_icon.webp" alt="sup" />
-          <p>{{ listBluePick[0].pick5 }}</p>
-        </div>
+      <div
+        class="pick"
+        *ngFor="let pick of listBluePick"
+        [class.actualPick]="pick.actualPick"
+      >
+        <img [src]="pick.img" alt="img" />
+        <p>{{ pick.name }}</p>
       </div>
     </div>
     <div class="champSelect">
@@ -62,13 +46,14 @@
         <div
           class="champ"
           *ngFor="let champ of champions"
-          (click)="champ.open && started && actualChamp(champ.id)"
-          [class.selected]="champ.id === actualChampion"
+          (click)="champ.open && started && actualChamp(champ)"
+          [class.selected]="champ.id === actualChampion.id"
         >
           <img
             [src]="champ.img"
             alt="champ"
             [class.disabled]="champ.open === false || !started"
+            [class.locked]="champ.id === actualChampion.id"
           />
         </div>
       </div>
@@ -77,53 +62,20 @@
       <div class="team__name">
         <h2>{{ redname }}</h2>
       </div>
-      <div class="first__pick">
-        <div class="pick pick1">
-          <p>{{ listRedPick[0].pick1 }}</p>
-          <img src="../../assets/img/game/role/Top_icon.webp" alt="top" />
-        </div>
-        <div class="pick pick2">
-          <p>{{ listRedPick[0].pick2 }}</p>
-          <img src="../../assets/img/game/role/Jungle_icon.webp" alt="jgl" />
-        </div>
-        <div class="pick pick3">
-          <p>{{ listRedPick[0].pick3 }}</p>
-          <img src="../../assets/img/game/role/Middle_icon.webp" alt="mid" />
-        </div>
-      </div>
-      <div class="last__pick">
-        <div class="pick pick4">
-          <p>{{ listRedPick[0].pick4 }}</p>
-          <img src="../../assets/img/game/role/Bottom_icon.webp" alt="adc" />
-        </div>
-        <div class="pick pick5">
-          <p>{{ listRedPick[0].pick5 }}</p>
-          <img src="../../assets/img/game/role/Support_icon.webp" alt="sup" />
-        </div>
+      <div
+        class="pick"
+        *ngFor="let pick of listRedPick"
+        [class.actualPick]="pick.actualPick"
+      >
+        <p>{{ pick.name }}</p>
+        <img [src]="pick.img" alt="img" />
       </div>
     </div>
   </div>
   <div class="bottom">
     <div class="blue__ban">
-      <div class="first__ban">
-        <div class="ban ban1">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-        <div class="ban ban2">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-        <div class="ban ban3">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-      </div>
-
-      <div class="last__ban">
-        <div class="ban ban4">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-        <div class="ban ban5">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
+      <div class="ban" *ngFor="let ban of listBlueBan">
+        <img [src]="ban.img" alt="ban" [class.actualBan]="ban.actualBan" />
       </div>
     </div>
     <div class="buttons">
@@ -132,7 +84,7 @@
           class="lock__in"
           *ngIf="picking"
           (click)="pickChampion()"
-          [disabled]="actualChampion === -1"
+          [disabled]="actualChampion.id === 0"
         >
           Lock-in
         </button>
@@ -140,7 +92,7 @@
           class="ban__button"
           *ngIf="!picking"
           (click)="banChampion()"
-          [disabled]="actualChampion === -1"
+          [disabled]="actualChampion.id === 0"
         >
           Ban
         </button>
@@ -153,25 +105,8 @@
       </div>
     </div>
     <div class="red__ban">
-      <div class="first__ban">
-        <div class="ban ban1">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-        <div class="ban ban2">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-        <div class="ban ban3">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-      </div>
-
-      <div class="last__ban">
-        <div class="ban ban4">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
-        <div class="ban ban5">
-          <img src="../../assets/img/game/ban.png" alt="ban" />
-        </div>
+      <div class="ban" *ngFor="let ban of listRedBan">
+        <img [src]="ban.img" alt="ban" [class.actualBan]="ban.actualBan" />
       </div>
     </div>
   </div>

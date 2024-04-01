@@ -1,5 +1,5 @@
 <form>
-  <div class="background"></div>
+  <img [src]="background" alt="background" class="background" />
   <button class="btn__changeBackground" (click)="backgroundChange()">
     Change Background
   </button>
@@ -16,7 +16,9 @@
       [ngModelOptions]="{ standalone: true }"
       required
     />
+    <p class="error" *ngIf="errorGame">Game Name can't be empty</p>
   </div>
+
   <div class="form-group">
     <label for="bluename">Blue Team Name</label>
     <input
@@ -28,7 +30,9 @@
       [ngModelOptions]="{ standalone: true }"
       required
     />
+    <p class="error" *ngIf="errorBlue">Blue Team Name can't be empty</p>
   </div>
+
   <div class="form-group">
     <label for="redname">Red Team Name</label>
     <input
@@ -40,7 +44,9 @@
       [ngModelOptions]="{ standalone: true }"
       required
     />
+    <p class="error" *ngIf="errorRed">Red Team Name can't be empty</p>
   </div>
+
   <div class="all__btn">
     <div class="overflow">
       <button class="btn__cancel" (click)="reset()">X</button>

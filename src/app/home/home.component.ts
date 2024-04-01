@@ -11,19 +11,22 @@ export class HomeComponent {
   bluename: string = localStorage.getItem('bluename') || '';
   redname: string = localStorage.getItem('redname') || '';
   error: boolean = false;
+  errorGame: boolean = false;
+  errorBlue: boolean = false;
+  errorRed: boolean = false;
 
-  background: string = 'url(../../assets/img/background.jpg)';
+  background: string = '../../assets/img/background.jpg';
   backgroundElement: HTMLElement | null = null;
   backgrounds = [
-    'url(../../assets/img/background__teemo.png)',
-    'url(../../assets/img/fiddle.gif)',
-    'url(https://media.giphy.com/media/2DfPsGDCCFR0VO2yhx/giphy.gif)',
-    'url(https://media.giphy.com/media/ip68eDWiINMQh3qysS/giphy.gif)',
-    'url(https://media.giphy.com/media/Mk8X5m74dCTJVMLoQH/giphy.gif)',
-    'url(https://media.giphy.com/media/ZztwJB3iqzY1kdJrQ4/giphy.gif)',
-    'url(https://media.giphy.com/media/ce7o3JR18Ryr8yGN60/giphy.gif)',
-    'url(https://media.giphy.com/media/ZRR8wnQpPet9p5K5rX/giphy.gif)',
-    'url(../../assets/img/background.jpg)',
+    '../../assets/img/background__teemo.png',
+    '../../assets/img/fiddle.gif',
+    'https://media.giphy.com/media/2DfPsGDCCFR0VO2yhx/giphy.gif',
+    'https://media.giphy.com/media/ip68eDWiINMQh3qysS/giphy.gif',
+    'https://media.giphy.com/media/Mk8X5m74dCTJVMLoQH/giphy.gif',
+    'https://media.giphy.com/media/ZztwJB3iqzY1kdJrQ4/giphy.gif',
+    'https://media.giphy.com/media/ce7o3JR18Ryr8yGN60/giphy.gif',
+    'https://media.giphy.com/media/ZRR8wnQpPet9p5K5rX/giphy.gif',
+    '../../assets/img/background.jpg',
   ];
   currentBackground: number = 0;
 
@@ -32,12 +35,23 @@ export class HomeComponent {
 
     if (this.bluename === '') {
       this.error = true;
-      console.log('Please enter blue team name');
+      this.errorBlue = true;
+    } else {
+      this.errorBlue = false;
     }
 
     if (this.redname === '') {
       this.error = true;
-      console.log('Please enter red team name');
+      this.errorRed = true;
+    } else {
+      this.errorRed = false;
+    }
+
+    if (this.gamename === '') {
+      this.error = true;
+      this.errorGame = true;
+    } else {
+      this.errorGame = false;
     }
 
     if (!this.error) {
@@ -57,15 +71,10 @@ export class HomeComponent {
   }
 
   async backgroundChange() {
-    this.backgroundElement =
-      document.documentElement.querySelector('.background');
-    if (this.backgroundElement) {
-      this.backgroundElement.style.backgroundImage =
-        this.backgrounds[this.currentBackground];
-      this.currentBackground++;
-      if (this.currentBackground === this.backgrounds.length) {
-        this.currentBackground = 0;
-      }
+    this.background = this.backgrounds[this.currentBackground];
+    this.currentBackground++;
+    if (this.currentBackground >= this.backgrounds.length) {
+      this.currentBackground = 0;
     }
   }
 }

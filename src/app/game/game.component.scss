@@ -52,150 +52,121 @@ h1 {
         }
       }
 
-      .first__pick,
-      .last__pick {
+      .pick {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         width: 100%;
+        border-top: 0.1rem solid $gold;
+        border-bottom: 0.1rem solid $gold;
+        height: 8rem;
+        @media screen and (max-width: $tablet) {
+          height: 5rem;
+        }
 
-        .pick {
+        img {
+          position: relative;
+          width: 5rem;
+          height: 5rem;
+          padding: 0.2rem;
+          border: 1px solid $gold;
+          border-radius: 50%;
+          background-color: $blue;
+          margin-left: 1rem;
+
+          @media screen and (max-width: $tablet) {
+            width: 3rem;
+            height: 3rem;
+          }
+        }
+
+        p {
+          font-size: 1.5rem;
+          margin-left: 1rem;
+
+          @media screen and (max-width: $tablet) {
+            display: none;
+          }
+        }
+
+        .timer {
           display: flex;
           flex-direction: row;
           align-items: center;
-          width: 100%;
-          border-top: 0.1rem solid $gold;
-          border-bottom: 0.1rem solid $gold;
-          height: 8rem;
-          @media screen and (max-width: $tablet) {
-            height: 5rem;
+          margin-left: 1rem;
+          margin-right: 1rem;
+          font-size: 1.5rem;
+
+          @media screen and (max-width: $mobile) {
+            display: none;
           }
 
-          img {
-            position: relative;
-            width: 5rem;
-            height: 5rem;
-            padding: 0.2rem;
-            border: 1px solid $gold;
-            border-radius: 50%;
-            background-color: $blue;
-            margin-left: 1rem;
+          &::before {
+            //does an arrow to the left with annimation change background color
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 0.5rem solid transparent;
+            border-bottom: 0.5rem solid transparent;
+            border-right: 0.5rem solid $gold;
+            margin-right: 0.5rem;
+            animation: arrow 5s infinite;
 
-            @media screen and (max-width: $tablet) {
-              width: 3rem;
-              height: 3rem;
-            }
-          }
-
-          p {
-            font-size: 1.5rem;
-            margin-left: 1rem;
-
-            @media screen and (max-width: $tablet) {
-              display: none;
-            }
-          }
-
-          .timer {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-
-            @media screen and (max-width: $mobile) {
-              display: none;
-            }
-
-            &::before {
-              //does an arrow to the left with annimation change background color
-              content: "";
-              display: inline-block;
-              width: 0;
-              height: 0;
-              border-top: 0.5rem solid transparent;
-              border-bottom: 0.5rem solid transparent;
-              border-right: 0.5rem solid $gold;
-              margin-right: 0.5rem;
-              animation: arrow 5s infinite;
-
-              @keyframes arrow {
-                0% {
-                  border-right: 0.5rem solid $gold;
-                }
-                50% {
-                  border-right: 0.5rem solid $blueLighted;
-                }
-                100% {
-                  border-right: 0.5rem solid $gold;
-                }
+            @keyframes arrow {
+              0% {
+                border-right: 0.5rem solid $gold;
+              }
+              50% {
+                border-right: 0.5rem solid $blueLighted;
+              }
+              100% {
+                border-right: 0.5rem solid $gold;
               }
             }
           }
         }
+      }
 
-        .actualPick {
-          //does animation background color change
-          background-color: $black;
-          animation: changeColorPick 2s infinite;
+      .actualPick {
+        //does animation background color change
+        background-color: $black;
+        animation: changeColorPick 2s infinite;
 
-          @keyframes changeColorPick {
-            0% {
-              background-color: $black;
-            }
-            50% {
-              background-color: $gold;
-            }
-            100% {
-              background-color: $black;
-            }
+        @keyframes changeColorPick {
+          0% {
+            background-color: $black;
           }
-        }
-
-        .actualBan {
-          //does animation background color change
-          background-color: $black;
-          animation: changeColorBan 2s infinite;
-
-          @keyframes changeColorBan {
-            0% {
-              background-color: $black;
-            }
-            50% {
-              background-color: $red;
-            }
-            100% {
-              background-color: $black;
-            }
+          50% {
+            background-color: $gold;
+          }
+          100% {
+            background-color: $black;
           }
         }
       }
+    }
 
-      .first__pick {
-        margin-bottom: 5rem;
-      }
+    .first__pick {
+      margin-bottom: 5rem;
     }
 
     .red {
       .team__name {
         background-color: $redLight;
       }
-      .first__pick,
-      .last__pick {
-        .pick {
-          justify-content: flex-end;
-        }
-        .pick img {
-          background-color: $redLight;
-          margin-right: 1rem;
-          margin-left: 0rem;
-        }
+      .pick {
+        justify-content: flex-end;
+      }
+      .pick img {
+        background-color: $redLight;
+        margin-right: 1rem;
+        margin-left: 0rem;
+      }
 
-        .pick p {
-          margin-right: 1rem;
-          margin-left: 0rem;
-        }
+      .pick p {
+        margin-right: 1rem;
+        margin-left: 0rem;
       }
     }
 
@@ -477,6 +448,23 @@ h1 {
           @media screen and (max-width: $desktop) {
             width: 100%;
             height: 100%;
+          }
+        }
+
+        .actualBan {
+          opacity: 1;
+          animation: changeOpacity 5s infinite;
+
+          @keyframes changeOpacity {
+            0% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0.3;
+            }
+            100% {
+              opacity: 1;
+            }
           }
         }
       }
