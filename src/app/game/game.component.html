@@ -17,44 +17,92 @@
     <div class="champSelect">
       <div class="search">
         <div class="role">
-          <input type="checkbox" id="top" name="role" value="top" />
+          <input
+            type="radio"
+            id="top"
+            name="role"
+            value="top"
+            (click)="filterChampByRole('Top')"
+          />
           <label for="top"
             ><img src="../../assets/img/game/role/Top_icon.webp"
           /></label>
-          <input type="checkbox" id="jgl" name="role" value="jgl" />
+          <input
+            type="radio"
+            id="jgl"
+            name="role"
+            value="jgl"
+            (click)="filterChampByRole('Jungle')"
+          />
           <label for="jgl"
             ><img src="../../assets/img/game/role/Jungle_icon.webp"
           /></label>
-          <input type="checkbox" id="mid" name="role" value="mid" />
+          <input
+            type="radio"
+            id="mid"
+            name="role"
+            value="mid"
+            (click)="filterChampByRole('Mid')"
+          />
           <label for="mid"
             ><img src="../../assets/img/game/role/Middle_icon.webp"
           /></label>
-          <input type="checkbox" id="adc" name="role" value="adc" />
+          <input
+            type="radio"
+            id="adc"
+            name="role"
+            value="adc"
+            (click)="filterChampByRole('ADC')"
+          />
           <label for="adc"
             ><img src="../../assets/img/game/role/Bottom_icon.webp"
           /></label>
-          <input type="checkbox" id="sup" name="role" value="sup" />
+          <input
+            type="radio"
+            id="sup"
+            name="role"
+            value="sup"
+            (click)="filterChampByRole('Support')"
+          />
           <label for="sup"
             ><img src="../../assets/img/game/role/Support_icon.webp"
           /></label>
+          <input
+            type="radio"
+            id="all"
+            name="role"
+            value="all"
+            checked
+            (click)="filterChampByRole('All')"
+          />
+          <label for="all"
+            ><img src="../../assets/img/game/role/Fill_icon.webp"
+          /></label>
         </div>
         <div class="search__bar">
-          <input type="text" placeholder="Search" />
+          <input
+            type="text"
+            placeholder="Search champion"
+            value=""
+            (input)="filterChampByName($event)"
+          />
         </div>
       </div>
       <div class="champions">
-        <div
-          class="champ"
-          *ngFor="let champ of champions"
-          (click)="champ.open && started && actualChamp(champ)"
-          [class.selected]="champ.id === actualChampion.id"
-        >
-          <img
-            [src]="champ.img"
-            alt="champ"
-            [class.disabled]="champ.open === false || !started"
-            [class.locked]="champ.id === actualChampion.id"
-          />
+        <div class="divChamp" *ngFor="let champ of champions">
+          <div
+            class="champ"
+            *ngIf="!champ.hide"
+            (click)="champ.open && started && actualChamp(champ)"
+            [class.selected]="champ.id === actualChampion.id"
+          >
+            <img
+              [src]="champ.img"
+              alt="champ"
+              [class.disabled]="champ.open === false || !started"
+              [class.locked]="champ.id === actualChampion.id"
+            />
+          </div>
         </div>
       </div>
     </div>

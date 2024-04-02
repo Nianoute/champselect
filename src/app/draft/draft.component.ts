@@ -99,7 +99,6 @@ export class DraftComponent {
 
   async changeRole(pick: any, team: boolean) {
     this.role = pick;
-    console.log(this.role);
     if (team) {
       this.changeRedRole = false;
     } else {

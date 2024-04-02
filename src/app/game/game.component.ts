@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import championsList from '../../assets/setup/champions';
+import { championsList } from '../../assets/setup/champions';
+import { filterChampByRole } from '../../assets/setup/champions';
+import { filterChampByName } from '../../assets/setup/champions';
 
 @Component({
   selector: 'app-game',
@@ -12,6 +14,7 @@ export class GameComponent {
   redname: string = localStorage.getItem('redname') || '';
   started: boolean = localStorage.getItem('started') === 'true' ? true : false;
   picking: boolean = localStorage.getItem('picking') === 'true' ? true : false;
+  timout: any = null;
 
   actualStepBan: number = localStorage.getItem('actualStepBan')
     ? parseInt(localStorage.getItem('actualStepBan') || '1')
@@ -336,5 +339,20 @@ export class GameComponent {
       localStorage.setItem('listBluePick', JSON.stringify(this.listBluePick));
       localStorage.setItem('bluePickStep', this.bluePickStep.toString());
     }
+  }
+
+  async filterChampByRole(role: string) {
+    clearTimeout(this.timout);
+    this.timout = setTimeout(() => {
+      return filterChampByRole(role);
+    }, 100);
+  }
+
+  async filterChampByName(event: Event | undefined) {
+    clearTimeout(this.timout);
+    this.timout = setTimeout(() => {
+      let value = (event?.target as HTMLInputElement).value;
+      return filterChampByName(value);
+    }, 500);
   }
 }

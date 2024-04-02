@@ -5,8 +5,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg',
     id: 1,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Ahri',
@@ -14,8 +15,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg',
     id: 2,
-    role: 'Mid',
+    role: '[Mid, Support],',
     open: true,
+    hide: false,
   },
   {
     name: 'Akali',
@@ -23,8 +25,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Akali_0.jpg',
     id: 3,
-    role: 'Mid',
+    role: ['Mid', 'Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Akshan',
@@ -32,8 +35,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Akshan_0.jpg',
     id: 4,
-    role: 'ADC',
+    role: ['ADC', 'Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Alistar',
@@ -41,8 +45,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Alistar_0.jpg',
     id: 5,
-    role: 'Support',
+    role: ['Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Amumu',
@@ -50,8 +55,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Amumu_0.jpg',
     id: 6,
-    role: 'Jungle',
+    role: ['Jungle', 'Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Anivia',
@@ -59,8 +65,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Anivia_0.jpg',
     id: 7,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Annie',
@@ -68,8 +75,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Annie_0.jpg',
     id: 8,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Aphelios',
@@ -77,8 +85,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aphelios_0.jpg',
     id: 9,
-    role: 'ADC',
+    role: ['ADC'],
     open: true,
+    hide: false,
   },
   {
     name: 'Ashe',
@@ -86,8 +95,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ashe_0.jpg',
     id: 10,
-    role: 'ADC',
+    role: ['ADC', 'Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Aurelion Sol',
@@ -95,8 +105,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/AurelionSol_0.jpg',
     id: 11,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Azir',
@@ -104,8 +115,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Azir_0.jpg',
     id: 12,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Bard',
@@ -113,8 +125,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Bard_0.jpg',
     id: 13,
-    role: 'Support',
+    role: ['Support'],
     open: true,
+    hide: false,
   },
   {
     name: "Bel'veth",
@@ -122,8 +135,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Belveth_0.jpg',
     id: 14,
-    role: 'Jungle',
+    role: ['Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Blitzcrank',
@@ -131,8 +145,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Blitzcrank_0.jpg',
     id: 15,
-    role: 'Support',
+    role: ['Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Brand',
@@ -140,8 +155,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Brand_0.jpg',
     id: 16,
-    role: 'Support',
+    role: ['Support', 'Mid', 'Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Braum',
@@ -149,8 +165,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Braum_0.jpg',
     id: 17,
-    role: 'Support',
+    role: ['Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Caitlyn',
@@ -158,8 +175,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg',
     id: 18,
-    role: 'ADC',
+    role: ['ADC', 'Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Camille',
@@ -167,8 +185,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Camille_0.jpg',
     id: 19,
-    role: 'Top',
+    role: ['Top', 'Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Cassiopeia',
@@ -176,8 +195,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Cassiopeia_0.jpg',
     id: 20,
-    role: 'Mid',
+    role: ['Top', 'Mid'],
     open: true,
+    hide: false,
   },
   {
     name: "Cho'Gath",
@@ -185,8 +205,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Chogath_0.jpg',
     id: 21,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Corki',
@@ -194,8 +215,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Corki_0.jpg',
     id: 22,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Darius',
@@ -203,8 +225,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Darius_0.jpg',
     id: 23,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Diana',
@@ -212,8 +235,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Diana_0.jpg',
     id: 24,
-    role: 'Mid',
+    role: ['Jungle', 'Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Dr. Mundo',
@@ -221,8 +245,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/DrMundo_0.jpg',
     id: 25,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Draven',
@@ -230,8 +255,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Draven_0.jpg',
     id: 26,
-    role: 'ADC',
+    role: ['ADC'],
     open: true,
+    hide: false,
   },
   {
     name: 'Ekko',
@@ -239,8 +265,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ekko_0.jpg',
     id: 27,
-    role: 'Mid',
+    role: ['Mid', 'Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Elise',
@@ -248,8 +275,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Elise_0.jpg',
     id: 28,
-    role: 'Jungle',
+    role: ['Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Evelynn',
@@ -257,8 +285,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Evelynn_0.jpg',
     id: 29,
-    role: 'Jungle',
+    role: ['Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Ezreal',
@@ -266,8 +295,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ezreal_0.jpg',
     id: 30,
-    role: 'ADC',
+    role: ['ADC'],
     open: true,
+    hide: false,
   },
   {
     name: 'Fiddlesticks',
@@ -275,8 +305,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fiddlesticks_0.jpg',
     id: 31,
-    role: 'Support',
+    role: ['Support', 'Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Fiora',
@@ -284,8 +315,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fiora_0.jpg',
     id: 32,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Fizz',
@@ -293,8 +325,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fizz_0.jpg',
     id: 33,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Galio',
@@ -302,8 +335,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Galio_0.jpg',
     id: 34,
-    role: 'Mid',
+    role: ['Mid', 'Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Gangplank',
@@ -311,8 +345,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gangplank_0.jpg',
     id: 35,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Garen',
@@ -320,8 +355,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg',
     id: 36,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Gnar',
@@ -329,8 +365,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gnar_0.jpg',
     id: 37,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Gragas',
@@ -338,8 +375,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gragas_0.jpg',
     id: 38,
-    role: 'Jungle',
+    role: ['Jungle', 'Top', 'Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Graves',
@@ -347,8 +385,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Graves_0.jpg',
     id: 39,
-    role: 'Jungle',
+    role: ['Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Gwen',
@@ -356,8 +395,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gwen_0.jpg',
     id: 40,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Hecarim',
@@ -365,8 +405,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Hecarim_0.jpg',
     id: 41,
-    role: 'Jungle',
+    role: ['Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Heimerdinger',
@@ -374,8 +415,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Heimerdinger_0.jpg',
     id: 42,
-    role: 'Mid',
+    role: ['Mid', 'Top', 'Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Illaoi',
@@ -383,8 +425,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Illaoi_0.jpg',
     id: 43,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Irelia',
@@ -392,8 +435,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Irelia_0.jpg',
     id: 44,
-    role: 'Top',
+    role: ['Top', 'Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Ivern',
@@ -401,8 +445,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ivern_0.jpg',
     id: 45,
-    role: 'Jungle',
+    role: ['Jungle', 'Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Janna',
@@ -410,8 +455,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Janna_0.jpg',
     id: 46,
-    role: 'Support',
+    role: ['Support'],
     open: true,
+    hide: false,
   },
   {
     name: 'Jarvan IV',
@@ -419,8 +465,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/JarvanIV_0.jpg',
     id: 47,
-    role: 'Jungle',
+    role: ['Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Jax',
@@ -428,8 +475,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jax_0.jpg',
     id: 48,
-    role: 'Top',
+    role: ['Top', 'Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Jayce',
@@ -437,8 +485,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jayce_0.jpg',
     id: 49,
-    role: 'Top',
+    role: ['Top', 'Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Jhin',
@@ -446,8 +495,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jhin_0.jpg',
     id: 50,
-    role: 'ADC',
+    role: ['ADC'],
     open: true,
+    hide: false,
   },
   {
     name: 'Jinx',
@@ -455,8 +505,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jinx_0.jpg',
     id: 51,
-    role: 'ADC',
+    role: ['ADC'],
     open: true,
+    hide: false,
   },
   {
     name: "Kai'Sa",
@@ -464,8 +515,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kaisa_0.jpg',
     id: 52,
-    role: 'ADC',
+    role: ['ADC'],
     open: true,
+    hide: false,
   },
   {
     name: 'Kalista',
@@ -473,8 +525,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kalista_0.jpg',
     id: 53,
-    role: 'ADC',
+    role: ['ADC'],
     open: true,
+    hide: false,
   },
   {
     name: 'Karma',
@@ -482,8 +535,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Karma_0.jpg',
     id: 54,
-    role: 'Support',
+    role: ['Support', 'Mid', 'Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Karthus',
@@ -491,8 +545,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Karthus_0.jpg',
     id: 55,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Kassadin',
@@ -500,8 +555,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kassadin_0.jpg',
     id: 56,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Katarina',
@@ -509,8 +565,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Katarina_0.jpg',
     id: 57,
-    role: 'Mid',
+    role: ['Mid'],
     open: true,
+    hide: false,
   },
   {
     name: 'Kayle',
@@ -518,8 +575,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayle_0.jpg',
     id: 58,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
   {
     name: 'Kayn',
@@ -527,8 +585,9 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayn_0.jpg',
     id: 59,
-    role: 'Jungle',
+    role: ['Jungle'],
     open: true,
+    hide: false,
   },
   {
     name: 'Kennen',
@@ -536,9 +595,54 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kennen_0.jpg',
     id: 60,
-    role: 'Top',
+    role: ['Top'],
     open: true,
+    hide: false,
   },
 ];
 
-export default championsList;
+const filterChampByRole = (role: string) => {
+  if (role === 'All') {
+    championsList.forEach((champ) => {
+      champ.hide = false;
+    });
+    return;
+  }
+
+  championsList.forEach((champ) => {
+    if (champ.role.includes(role)) {
+      champ.hide = false;
+    } else {
+      champ.hide = true;
+    }
+  });
+};
+
+const filterChampByName = (name: string) => {
+  const splitName: string[] = name.toLowerCase().split('');
+  championsList.forEach((champ: any) => {
+    const champName: string = champ.name.toLowerCase();
+    const splitChampName: string[] = champName.split('');
+    let letterFound: number = 0;
+    let found: boolean = false;
+
+    splitName.forEach((letter: string) => {
+      if (splitChampName.includes(letter)) {
+        letterFound++;
+      }
+      splitChampName.splice(splitChampName.indexOf(letter), 1);
+    });
+
+    if (letterFound === splitName.length) {
+      found = true;
+    }
+
+    if (found) {
+      champ.hide = false;
+    } else {
+      champ.hide = true;
+    }
+  });
+};
+
+export { championsList, filterChampByRole, filterChampByName };
