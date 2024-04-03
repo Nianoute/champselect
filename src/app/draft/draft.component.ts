@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChampionDraft } from '../../assets/setup/champions';
 
 @Component({
   selector: 'app-draft',
@@ -10,33 +11,56 @@ export class DraftComponent {
   bluename: string = localStorage.getItem('bluename') || '';
   redname: string = localStorage.getItem('redname') || '';
 
-  banList: any = localStorage.getItem('banList')
+  banList: Array<ChampionDraft> = localStorage.getItem('banList')
     ? JSON.parse(localStorage.getItem('banList') || '[]')
     : [];
 
-  listPick: any = localStorage.getItem('listPick')
+  listPick: Array<ChampionDraft> = localStorage.getItem('listPick')
     ? JSON.parse(localStorage.getItem('listPick') || '[]')
     : [];
 
-  listBlueBan: any = localStorage.getItem('listBlueBan')
+  listBlueBan: Array<ChampionDraft> = localStorage.getItem('listBlueBan')
     ? JSON.parse(localStorage.getItem('listBlueBan') || '[]')
     : [];
 
-  listRedBan: any = localStorage.getItem('listRedBan')
+  listRedBan: Array<ChampionDraft> = localStorage.getItem('listRedBan')
     ? JSON.parse(localStorage.getItem('listRedBan') || '[]')
     : [];
 
-  listBluePick: any = localStorage.getItem('listBluePick')
+  listBluePick: Array<ChampionDraft> = localStorage.getItem('listBluePick')
     ? JSON.parse(localStorage.getItem('listBluePick') || '[]')
     : [];
 
-  listRedPick: any = localStorage.getItem('listRedPick')
+  listRedPick: Array<ChampionDraft> = localStorage.getItem('listRedPick')
     ? JSON.parse(localStorage.getItem('listRedPick') || '[]')
     : [];
 
-  orders: any = [];
+  orders: Array<ChampionDraft> = [];
 
-  role: any = {};
+  role: ChampionDraft = {
+    id: 0,
+    name: '',
+    img: '',
+    splash: '',
+    ban: false,
+    team: false,
+    indexBlue: 0,
+    indexRed: 0,
+    roleActual: '',
+  };
+
+  initialRole: ChampionDraft = {
+    id: 0,
+    name: '',
+    img: '',
+    splash: '',
+    ban: false,
+    team: false,
+    indexBlue: 0,
+    indexRed: 0,
+    roleActual: '',
+  };
+
   changeBlueRole: boolean = true;
   changeRedRole: boolean = true;
   changeRoleActive: boolean = false;
@@ -53,14 +77,14 @@ export class DraftComponent {
     ) {
       window.location.href = '/game';
     } else {
-      this.banList.forEach((element: Array<string>, index: number) => {
+      this.banList.forEach((element: ChampionDraft, index: number) => {
         if (index % 2 === 0) {
           this.listBlueBan.push(element);
         } else {
           this.listRedBan.push(element);
         }
       });
-      this.listBluePick.forEach((element: any, index: number) => {
+      this.listBluePick.forEach((element: ChampionDraft, index: number) => {
         element.indexBlue = index;
         if (index + 1 === 1) {
           element.roleActual = '../../assets/img/game/role/Top_icon.webp';
@@ -74,7 +98,7 @@ export class DraftComponent {
           element.roleActual = '../../assets/img/game/role/Support_icon.webp';
         }
       });
-      this.listRedPick.forEach((element: any, index: number) => {
+      this.listRedPick.forEach((element: ChampionDraft, index: number) => {
         element.indexRed = index;
         if (index + 1 === 1) {
           element.roleActual = '../../assets/img/game/role/Top_icon.webp';
@@ -97,7 +121,7 @@ export class DraftComponent {
     window.location.href = '/';
   }
 
-  async changeRole(pick: any, team: boolean) {
+  async changeRole(pick: ChampionDraft, team: boolean) {
     this.role = pick;
     if (team) {
       this.changeRedRole = false;
@@ -107,11 +131,11 @@ export class DraftComponent {
     this.changeRoleActive = true;
   }
 
-  async changeRole2(pick: any, team: boolean) {
+  async changeRole2(pick: ChampionDraft, team: boolean) {
     if (team) {
       this.listBluePick[pick.indexBlue] = this.role;
       this.listBluePick[this.role.indexBlue] = pick;
-      this.listBluePick.forEach((element: any, index: number) => {
+      this.listBluePick.forEach((element: ChampionDraft, index: number) => {
         element.indexBlue = index;
         if (index + 1 === 1) {
           element.roleActual = '../../assets/img/game/role/Top_icon.webp';
@@ -128,7 +152,7 @@ export class DraftComponent {
     } else {
       this.listRedPick[pick.indexRed] = this.role;
       this.listRedPick[this.role.indexRed] = pick;
-      this.listRedPick.forEach((element: any, index: number) => {
+      this.listRedPick.forEach((element: ChampionDraft, index: number) => {
         element.indexRed = index;
         if (index + 1 === 1) {
           element.roleActual = '../../assets/img/game/role/Top_icon.webp';
@@ -146,14 +170,14 @@ export class DraftComponent {
     this.changeRoleActive = false;
     this.changeRedRole = true;
     this.changeBlueRole = true;
-    this.role = {};
+    this.role = this.initialRole;
   }
 
   async changeRoleStop() {
     this.changeRoleActive = false;
     this.changeRedRole = true;
     this.changeBlueRole = true;
-    this.role = {};
+    this.role = this.initialRole;
   }
 
   async orderPickBan() {

@@ -1,3 +1,27 @@
+type Champion = {
+  name: string;
+  img: string;
+  splash: string;
+  id: number;
+  role: string[];
+  open: boolean;
+  hide: boolean;
+  actualPick: boolean;
+  actualBan: boolean;
+};
+
+type ChampionDraft = {
+  name: string;
+  img: string;
+  id: number;
+  splash: string;
+  ban: boolean;
+  team: boolean;
+  roleActual: string;
+  indexBlue: number;
+  indexRed: number;
+};
+
 const championsList = [
   {
     name: 'Aatrox',
@@ -8,6 +32,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Ahri',
@@ -15,9 +41,11 @@ const championsList = [
     splash:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg',
     id: 2,
-    role: '[Mid, Support],',
+    role: ['Mid', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Akali',
@@ -28,6 +56,8 @@ const championsList = [
     role: ['Mid', 'Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Akshan',
@@ -38,6 +68,8 @@ const championsList = [
     role: ['ADC', 'Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Alistar',
@@ -48,6 +80,8 @@ const championsList = [
     role: ['Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Amumu',
@@ -58,6 +92,8 @@ const championsList = [
     role: ['Jungle', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Anivia',
@@ -68,6 +104,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Annie',
@@ -78,6 +116,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Aphelios',
@@ -88,6 +128,8 @@ const championsList = [
     role: ['ADC'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Ashe',
@@ -98,6 +140,8 @@ const championsList = [
     role: ['ADC', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Aurelion Sol',
@@ -108,6 +152,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Azir',
@@ -118,6 +164,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Bard',
@@ -128,6 +176,8 @@ const championsList = [
     role: ['Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: "Bel'veth",
@@ -138,6 +188,8 @@ const championsList = [
     role: ['Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Blitzcrank',
@@ -148,6 +200,8 @@ const championsList = [
     role: ['Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Brand',
@@ -158,6 +212,8 @@ const championsList = [
     role: ['Support', 'Mid', 'Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Braum',
@@ -168,6 +224,8 @@ const championsList = [
     role: ['Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Caitlyn',
@@ -178,6 +236,8 @@ const championsList = [
     role: ['ADC', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Camille',
@@ -188,6 +248,8 @@ const championsList = [
     role: ['Top', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Cassiopeia',
@@ -198,6 +260,8 @@ const championsList = [
     role: ['Top', 'Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: "Cho'Gath",
@@ -208,6 +272,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Corki',
@@ -218,6 +284,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Darius',
@@ -228,6 +296,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Diana',
@@ -238,6 +308,8 @@ const championsList = [
     role: ['Jungle', 'Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Dr. Mundo',
@@ -248,6 +320,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Draven',
@@ -258,6 +332,8 @@ const championsList = [
     role: ['ADC'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Ekko',
@@ -268,6 +344,8 @@ const championsList = [
     role: ['Mid', 'Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Elise',
@@ -278,6 +356,8 @@ const championsList = [
     role: ['Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Evelynn',
@@ -288,6 +368,8 @@ const championsList = [
     role: ['Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Ezreal',
@@ -298,6 +380,8 @@ const championsList = [
     role: ['ADC'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Fiddlesticks',
@@ -308,6 +392,8 @@ const championsList = [
     role: ['Support', 'Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Fiora',
@@ -318,6 +404,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Fizz',
@@ -328,6 +416,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Galio',
@@ -338,6 +428,8 @@ const championsList = [
     role: ['Mid', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Gangplank',
@@ -348,6 +440,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Garen',
@@ -358,6 +452,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Gnar',
@@ -368,6 +464,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Gragas',
@@ -378,6 +476,8 @@ const championsList = [
     role: ['Jungle', 'Top', 'Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Graves',
@@ -388,6 +488,8 @@ const championsList = [
     role: ['Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Gwen',
@@ -398,6 +500,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Hecarim',
@@ -408,6 +512,8 @@ const championsList = [
     role: ['Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Heimerdinger',
@@ -418,6 +524,8 @@ const championsList = [
     role: ['Mid', 'Top', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Illaoi',
@@ -428,6 +536,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Irelia',
@@ -438,6 +548,8 @@ const championsList = [
     role: ['Top', 'Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Ivern',
@@ -448,6 +560,8 @@ const championsList = [
     role: ['Jungle', 'Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Janna',
@@ -458,6 +572,8 @@ const championsList = [
     role: ['Support'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Jarvan IV',
@@ -468,6 +584,8 @@ const championsList = [
     role: ['Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Jax',
@@ -478,6 +596,8 @@ const championsList = [
     role: ['Top', 'Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Jayce',
@@ -488,6 +608,8 @@ const championsList = [
     role: ['Top', 'Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Jhin',
@@ -498,6 +620,8 @@ const championsList = [
     role: ['ADC'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Jinx',
@@ -508,6 +632,8 @@ const championsList = [
     role: ['ADC'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: "Kai'Sa",
@@ -518,6 +644,8 @@ const championsList = [
     role: ['ADC'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Kalista',
@@ -528,6 +656,8 @@ const championsList = [
     role: ['ADC'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Karma',
@@ -538,6 +668,8 @@ const championsList = [
     role: ['Support', 'Mid', 'Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Karthus',
@@ -548,6 +680,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Kassadin',
@@ -558,6 +692,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Katarina',
@@ -568,6 +704,8 @@ const championsList = [
     role: ['Mid'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Kayle',
@@ -578,6 +716,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Kayn',
@@ -588,6 +728,8 @@ const championsList = [
     role: ['Jungle'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
   {
     name: 'Kennen',
@@ -598,6 +740,8 @@ const championsList = [
     role: ['Top'],
     open: true,
     hide: false,
+    actualPick: false,
+    actualBan: false,
   },
 ];
 
@@ -620,7 +764,7 @@ const filterChampByRole = (role: string) => {
 
 const filterChampByName = (name: string) => {
   const splitName: string[] = name.toLowerCase().split('');
-  championsList.forEach((champ: any) => {
+  championsList.forEach((champ: Champion) => {
     const champName: string = champ.name.toLowerCase();
     const splitChampName: string[] = champName.split('');
     let letterFound: number = 0;
@@ -645,4 +789,10 @@ const filterChampByName = (name: string) => {
   });
 };
 
-export { championsList, filterChampByRole, filterChampByName };
+export {
+  championsList,
+  filterChampByRole,
+  filterChampByName,
+  Champion,
+  ChampionDraft,
+};

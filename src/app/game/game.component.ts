@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { championsList } from '../../assets/setup/champions';
 import { filterChampByRole } from '../../assets/setup/champions';
 import { filterChampByName } from '../../assets/setup/champions';
+import { Champion } from '../../assets/setup/champions';
 
 @Component({
   selector: 'app-game',
@@ -14,7 +15,7 @@ export class GameComponent {
   redname: string = localStorage.getItem('redname') || '';
   started: boolean = localStorage.getItem('started') === 'true' ? true : false;
   picking: boolean = localStorage.getItem('picking') === 'true' ? true : false;
-  timout: any = null;
+  timeout: ReturnType<typeof setTimeout> | undefined;
 
   actualStepBan: number = localStorage.getItem('actualStepBan')
     ? parseInt(localStorage.getItem('actualStepBan') || '1')
@@ -32,19 +33,40 @@ export class GameComponent {
     ? parseInt(localStorage.getItem('actualStep') || '1')
     : 1;
 
-  actualChampion: any = {
+  actualChampion: Champion = {
+    name: '',
+    img: '',
+    splash: '',
     id: 0,
+    role: ['Top'],
+    open: true,
+    hide: false,
+    actualPick: false,
+    actualBan: false,
   };
+
+  initialChampion: Champion = {
+    name: '',
+    img: '',
+    splash: '',
+    id: 0,
+    role: ['Top'],
+    open: true,
+    hide: false,
+    actualPick: false,
+    actualBan: false,
+  };
+
   champions = championsList;
-  banList: any = localStorage.getItem('banList')
+  banList: Array<Champion> = localStorage.getItem('banList')
     ? JSON.parse(localStorage.getItem('banList') || '[]')
     : [];
 
-  ListPick: any = localStorage.getItem('listPick')
+  ListPick: Array<Champion> = localStorage.getItem('listPick')
     ? JSON.parse(localStorage.getItem('listPick') || '[]')
     : [];
 
-  listBluePick: any = localStorage.getItem('listBluePick')
+  listBluePick: Array<Champion> = localStorage.getItem('listBluePick')
     ? JSON.parse(localStorage.getItem('listBluePick') || '[]')
     : [
         {
@@ -74,7 +96,7 @@ export class GameComponent {
         },
       ];
 
-  listBlueBan: any = localStorage.getItem('listBlueBan')
+  listBlueBan: Array<Champion> = localStorage.getItem('listBlueBan')
     ? JSON.parse(localStorage.getItem('listBlueBan') || '[]')
     : [
         {
@@ -99,7 +121,7 @@ export class GameComponent {
         },
       ];
 
-  listRedPick: any = localStorage.getItem('listRedPick')
+  listRedPick: Array<Champion> = localStorage.getItem('listRedPick')
     ? JSON.parse(localStorage.getItem('listRedPick') || '[]')
     : [
         {
@@ -129,7 +151,7 @@ export class GameComponent {
         },
       ];
 
-  listRedBan: any = localStorage.getItem('listRedBan')
+  listRedBan: Array<Champion> = localStorage.getItem('listRedBan')
     ? JSON.parse(localStorage.getItem('listRedBan') || '[]')
     : [
         {
@@ -184,7 +206,7 @@ export class GameComponent {
         }
 
         if (localStorage.getItem('listPick')) {
-          this.ListPick.forEach((pick: any, index: number) => {
+          this.ListPick.forEach((pick: Champion, index: number) => {
             if (index < 10) {
               this.champions[pick.id - 1].open = false;
             }
@@ -192,7 +214,7 @@ export class GameComponent {
         }
 
         if (localStorage.getItem('banList')) {
-          this.banList.forEach((ban: any, index: number) => {
+          this.banList.forEach((ban: Champion, index: number) => {
             if (index < 10) {
               this.champions[ban.id - 1].open = false;
             }
@@ -213,14 +235,14 @@ export class GameComponent {
     this.listBlueBan[0].actualBan = true;
   }
 
-  async actualChamp(championId: any) {
+  async actualChamp(champion: Champion) {
     if (!this.picking) {
       if (this.actualStepBan % 2 !== 0) {
         let step = this.actualStepBan / 2 - 0.5;
-        this.listBlueBan[step].img = championId.img;
+        this.listBlueBan[step].img = champion.img;
       } else {
         let step = this.actualStepBan / 2 - 1;
-        this.listRedBan[step].img = championId.img;
+        this.listRedBan[step].img = champion.img;
       }
     } else {
       if (
@@ -230,12 +252,12 @@ export class GameComponent {
         this.actualStepPick === 7 ||
         this.actualStepPick === 10
       ) {
-        this.listRedPick[this.redPickStep - 1].img = championId.img;
+        this.listRedPick[this.redPickStep - 1].img = champion.img;
       } else {
-        this.listBluePick[this.bluePickStep - 1].img = championId.img;
+        this.listBluePick[this.bluePickStep - 1].img = champion.img;
       }
     }
-    this.actualChampion = championId;
+    this.actualChampion = champion;
   }
 
   async banChampion() {
@@ -261,9 +283,7 @@ export class GameComponent {
     localStorage.setItem('actualStepBan', this.actualStepBan.toString());
     localStorage.setItem('actualStep', this.actualStep.toString());
     localStorage.setItem('picking', this.picking.toString());
-    this.actualChampion = {
-      id: 0,
-    };
+    this.actualChampion = this.initialChampion;
   }
 
   async pickChampion() {
@@ -291,9 +311,7 @@ export class GameComponent {
         this.listBlueBan[3].actualBan = true;
       }
     }
-    this.actualChampion = {
-      id: 0,
-    };
+    this.actualChampion = this.initialChampion;
     localStorage.setItem('actualStep', this.actualStep.toString());
     localStorage.setItem('actualStepPick', this.actualStepPick.toString());
     localStorage.setItem('picking', this.picking.toString());
@@ -342,15 +360,15 @@ export class GameComponent {
   }
 
   async filterChampByRole(role: string) {
-    clearTimeout(this.timout);
-    this.timout = setTimeout(() => {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
       return filterChampByRole(role);
     }, 100);
   }
 
   async filterChampByName(event: Event | undefined) {
-    clearTimeout(this.timout);
-    this.timout = setTimeout(() => {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
       let value = (event?.target as HTMLInputElement).value;
       return filterChampByName(value);
     }, 500);
